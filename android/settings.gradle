@@ -1,0 +1,3 @@
+rootProject.name = 'SMS_Listener'
+
+include ':app'
