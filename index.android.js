@@ -11,9 +11,24 @@ import {
   Text,
   View
 } from 'react-native';
+import SmsListener from 'react-native-android-sms-listener';
 
 export default class SMS_Listener extends Component {
+
+  componentDidMount() {
+    console.info('componentDidMount');
+    SmsListener.addListener(message => {
+      console.log('here\'s the message');
+      console.log(message);
+      console.log(message.originatingAddress);
+      console.log(message.body);
+    });
+    console.info('created SmsListener');
+  }
+
   render() {
+    console.log('hi!');
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -29,6 +44,7 @@ export default class SMS_Listener extends Component {
       </View>
     );
   }
+
 }
 
 const styles = StyleSheet.create({
